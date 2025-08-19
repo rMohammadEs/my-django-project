@@ -18,20 +18,20 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# ========== شروع کدهای django-environ ==========
+# ========== django-environ ==========
 
-# 1. یک نمونه از کلاس Env بسازید
+# 1.
 env = environ.Env(
-    # به env بگویید که متغیر DEBUG را به نوع بولین (True/False) تبدیل کند.
-    # اگر DEBUG در فایل .env وجود نداشت، مقدار پیش‌فرض آن False باشد.
+    #  env DEBUG  (True/False)
+    #  DEBUG  .env  False .
     DEBUG=(bool, False)
 )
 
-# 2. فایل .env را بخوانید
-# این خط به django-environ می‌گوید که فایل .env را از ریشه پروژه بخواند.
+# 2. .env
+#  django-environ .env .
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# ========== پایان کدهای django-environ ==========
+# ==========  django-environ ==========
 
 
 # Quick-start development settings - unsuitable for production
@@ -49,12 +49,22 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+
+    'rest_framework',
+
+
+
+    'apps.blog',
+    'apps.pages',
 ]
 
 MIDDLEWARE = [
